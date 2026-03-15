@@ -7,21 +7,22 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
---bg-deep:#0d0205;--bg-mid:#1a0508;--bg-dark:#3d0a12;--bg-card:rgba(255,255,255,0.03);
---gold:#c9a84c;--gold-dim:#8a7535;--gold-glow:rgba(201,168,76,0.15);
---text:#e8e4dc;--text-dim:#7a7770;--text-bright:#fff;
---crimson:#5a1018;--crimson-deep:#2a060b;
+--bg-deep:#141311;--bg-mid:#1a1917;--bg-dark:#0f0e0d;--bg-card:rgba(255,255,255,0.025);
+--gold:#b8956a;--gold-dim:#8a7356;--gold-glow:rgba(184,149,106,0.08);
+--text:#d4d0c8;--text-dim:#7a7770;--text-bright:#f0ece4;
+--crimson:#3a2820;--crimson-deep:#1a1210;
 --serif:'Georgia','Times New Roman',serif;
---sans:'SF Pro Display','SF Pro Text',-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;
---content-width:720px;--wide-width:960px;
+--sans:'SF Pro Display',-apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif;
+--content-width:680px;--wide-width:960px;
 }
 html{scroll-behavior:smooth;font-size:16px}
 body{
 background:linear-gradient(180deg,var(--bg-deep) 0%,var(--bg-mid) 40%,var(--bg-deep) 100%);
-color:var(--text);font-family:var(--sans);line-height:1.8;
+color:var(--text);font-family:var(--serif);line-height:1.95;
 overflow-x:hidden;-webkit-font-smoothing:antialiased;
 }
 ::selection{background:var(--gold);color:var(--bg-deep)}
+h1,h2,h3,h4,h5,h6,.toc-title,.toc-list,.toc-part,.hero-part-label,.hero-title,.hero-subtitle,.btn-comenzar,.program-label,.edition,.gallery-label,.section-divider span{font-family:var(--sans)}
 ::-webkit-scrollbar{width:6px}
 ::-webkit-scrollbar-track{background:var(--bg-deep)}
 ::-webkit-scrollbar-thumb{background:var(--gold-dim);border-radius:3px}
@@ -32,20 +33,20 @@ overflow-x:hidden;-webkit-font-smoothing:antialiased;
 /* Sidebar TOC */
 #sidebar{
 position:fixed;left:0;top:0;width:280px;height:100vh;
-background:linear-gradient(180deg,rgba(13,2,5,0.98),rgba(26,5,8,0.98));
-border-right:1px solid rgba(201,168,76,0.1);
+background:linear-gradient(180deg,rgba(20,19,17,0.98),rgba(26,25,23,0.98));
+border-right:1px solid rgba(184,149,106,0.1);
 z-index:900;transform:translateX(-100%);transition:transform .4s cubic-bezier(.4,0,.2,1);
 overflow-y:auto;padding:80px 24px 40px;
 }
 #sidebar.open{transform:translateX(0)}
 #sidebar-toggle{
 position:fixed;left:16px;top:16px;z-index:950;
-width:44px;height:44px;border:1px solid rgba(201,168,76,0.3);
-background:rgba(13,2,5,0.9);border-radius:8px;cursor:pointer;
+width:44px;height:44px;border:1px solid rgba(184,149,106,0.3);
+background:rgba(20,19,17,0.9);border-radius:8px;cursor:pointer;
 display:flex;align-items:center;justify-content:center;
 transition:all .3s ease;
 }
-#sidebar-toggle:hover{border-color:var(--gold);background:rgba(201,168,76,0.08)}
+#sidebar-toggle:hover{border-color:var(--gold);background:rgba(184,149,106,0.08)}
 #sidebar-toggle span{display:block;width:18px;height:2px;background:var(--gold);position:relative;transition:all .3s}
 #sidebar-toggle span::before,#sidebar-toggle span::after{content:'';position:absolute;width:18px;height:2px;background:var(--gold);transition:all .3s}
 #sidebar-toggle span::before{top:-6px}
@@ -79,8 +80,8 @@ transform:scale(1.1);
 .hero::after{
 content:'';position:absolute;inset:0;z-index:1;
 background:
-  radial-gradient(ellipse at center,rgba(90,16,24,0.25) 0%,transparent 70%),
-  linear-gradient(180deg,rgba(13,2,5,0.85) 0%,rgba(13,2,5,0.6) 40%,rgba(13,2,5,0.6) 60%,rgba(13,2,5,0.95) 100%);
+  radial-gradient(ellipse at center,rgba(58,40,32,0.2) 0%,transparent 70%),
+  linear-gradient(180deg,rgba(20,19,17,0.85) 0%,rgba(20,19,17,0.6) 40%,rgba(20,19,17,0.6) 60%,rgba(20,19,17,0.95) 100%);
 }
 .hero-content{position:relative;z-index:2;max-width:800px;padding:60px 24px}
 .hero-part-label{
@@ -88,7 +89,7 @@ font-size:.75rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);
 margin-bottom:20px;font-weight:600;
 }
 .hero-title{
-font-size:clamp(3.5rem,9vw,7rem);font-weight:100;letter-spacing:.05em;
+font-size:clamp(3.5rem,9vw,7rem);font-weight:100;letter-spacing:.08em;
 text-transform:uppercase;
 color:var(--text-bright);line-height:1.05;margin-bottom:24px;
 }
@@ -105,15 +106,15 @@ width:60px;height:1px;background:var(--gold);margin:28px auto;opacity:0.6;
 .chapter-inner{max-width:var(--content-width);margin:0 auto;padding:80px 0}
 .chapter-inner h2{
 font-size:clamp(1.6rem,4vw,2.2rem);font-weight:300;color:var(--text-bright);
-letter-spacing:-.01em;margin:64px 0 24px;line-height:1.25;
+letter-spacing:-.01em;margin:64px 0 28px;line-height:1.25;font-family:var(--serif);
 }
 .chapter-inner h2:first-child{margin-top:0}
 .chapter-inner h3{
-font-size:1.15rem;font-weight:600;color:var(--gold);
-margin:40px 0 16px;letter-spacing:.02em;
+font-size:.95rem;font-weight:600;color:var(--gold);
+margin:40px 0 16px;letter-spacing:.12em;text-transform:uppercase;font-family:var(--sans);
 }
 .chapter-inner p{
-font-size:1.05rem;line-height:1.85;color:var(--text);margin-bottom:20px;
+font-size:1.05rem;line-height:1.95;color:var(--text);margin-bottom:24px;
 }
 .chapter-inner ul,.chapter-inner ol{
 margin:0 0 24px 24px;line-height:1.85;font-size:1.05rem;
@@ -123,9 +124,9 @@ margin:0 0 24px 24px;line-height:1.85;font-size:1.05rem;
 
 /* Pull Quotes */
 .pull-quote{
-border-left:3px solid var(--gold);padding:24px 0 24px 28px;margin:40px 0;
-font-size:1.25rem;font-style:italic;color:var(--text-bright);
-line-height:1.6;font-family:var(--serif);
+border-left:1px solid var(--gold);padding:24px 0 24px 24px;margin:40px 0;
+font-size:1.2rem;font-style:italic;color:var(--text-bright);
+line-height:1.7;font-family:var(--serif);
 }
 .pull-quote .attribution{
 display:block;font-size:.85rem;color:var(--gold-dim);font-style:normal;
@@ -134,8 +135,8 @@ margin-top:12px;font-family:var(--sans);
 
 /* Concept Cards */
 .concept-card{
-background:var(--bg-card);border:1px solid rgba(201,168,76,0.12);
-border-radius:12px;padding:32px;margin:32px 0;
+background:var(--bg-card);border:1px solid rgba(255,255,255,0.05);
+border-radius:8px;padding:32px;margin:32px 0;
 }
 .concept-card h4{
 font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;
@@ -146,8 +147,8 @@ color:var(--gold);margin-bottom:12px;font-weight:600;
 
 /* Framework Box */
 .framework-box{
-background:linear-gradient(135deg,rgba(201,168,76,0.06),rgba(201,168,76,0.02));
-border:1px solid rgba(201,168,76,0.15);border-radius:12px;
+background:linear-gradient(135deg,rgba(184,149,106,0.04),rgba(184,149,106,0.01));
+border:1px solid rgba(184,149,106,0.1);border-radius:8px;
 padding:32px;margin:40px 0;
 }
 .framework-box h4{color:var(--gold);font-size:1rem;margin-bottom:16px}
@@ -451,7 +452,7 @@ border-radius:10px;padding:24px;
 <p class="hero-part-label">Parte I</p>
 <div class="hero-line"></div>
 <h2 class="hero-title">SER</h2>
-<p class="hero-subtitle">Los fundamentos antropológicos, las fuerzas que mueven el mundo y la relación eterna entre persona y producto</p>
+<p class="hero-subtitle">Lo que somos. Lo que nos mueve. Lo que creamos. Y por qué nada de eso es accidental.</p>
 </div>
 </div>
 
@@ -460,16 +461,16 @@ border-radius:10px;padding:24px;
 
 <h2>El animal simbólico</h2>
 
-<p>Antes de hablar de marcas, productos o estrategias, conviene detenerse en una pregunta que raramente se formula en las escuelas de negocios: ¿qué somos? La respuesta a esa pregunta determina todo lo que viene después. Si no entendemos cómo funciona el ser humano —qué le mueve, qué le une, qué le da miedo, qué le da esperanza—, difícilmente podremos crear algo que le importe.</p>
+<p>Antes de marcas, antes de producto, antes de estrategia: ¿qué somos? Si no respondemos a eso, nada de lo que hagamos importará.</p>
 
-<p>Tres pensadores nos dan coordenadas esenciales. <strong>Aristóteles</strong> definió al ser humano como un animal social, racional y político. No podemos vivir aislados: necesitamos comunidad, lenguaje compartido, organización. <strong>Kant</strong> fue un paso más allá: somos un animal que necesita un líder. No por debilidad, sino porque la complejidad social exige articulación, dirección, alguien que señale un horizonte. Y <strong>Ernst Cassirer</strong> completó el cuadro al describirnos como el animal simbólico: vivimos en un universo de símbolos y significados —banderas, escudos, emojis, logos— que configuran nuestra realidad tanto o más que los hechos materiales.</p>
+<p><strong>Aristóteles</strong>: animal social, racional, político. Necesitamos comunidad. <strong>Kant</strong>: animal que necesita un líder — no por debilidad, sino porque alguien tiene que señalar el horizonte. <strong>Ernst Cassirer</strong>: animal simbólico. Vivimos entre banderas, escudos, emojis, logos. Los símbolos configuran nuestra realidad tanto como los hechos. A veces, más.</p>
 
 <div class="slide-figure fade-in">
 <img loading="lazy" src="slides/1_ser_y_estar/export/export.005.jpeg" alt="Aristóteles, Kant, Cassirer — bases antropológicas">
 <figcaption>Los tres pensadores que definen nuestra condición: animal social, animal que necesita líder, animal simbólico.</figcaption>
 </div>
 
-<p>Necesitamos creer para sentirnos seguros. El caso del Atlético de Madrid y su cambio de escudo ilustra lo que ocurre cuando no se integra a la comunidad en las decisiones sobre sus símbolos: la reacción fue visceral, porque tocar un símbolo es tocar la identidad. Nuestra profesión, demasiadas veces, vive aislada de la gente que consume lo que hacemos.</p>
+<p>Necesitamos creer para sentirnos seguros. El Atlético de Madrid cambió su escudo sin contar con su comunidad. La reacción fue visceral. Tocar un símbolo es tocar la identidad. Nuestra profesión, demasiadas veces, vive aislada de quienes consumen lo que hacemos.</p>
 
 <div class="slide-gallery fade-in">
 <img loading="lazy" src="slides/1_ser_y_estar/export/export.010.jpeg" alt="Orígenes del ser humano">
@@ -477,14 +478,14 @@ border-radius:10px;padding:24px;
 <img loading="lazy" src="slides/1_ser_y_estar/export/export.020.jpeg" alt="Narrativas y política">
 </div>
 
-<h3>Tres tipos de amistad aplicados a las marcas</h3>
+<h3>Tres amistades, tres marcas</h3>
 
-<p>Aristóteles clasificó tres tipos de amistad que resultan extraordinariamente útiles para entender la relación entre empresas y personas:</p>
+<p>Aristóteles clasificó la amistad en tres tipos. Sirven para entender toda relación entre empresa y persona:</p>
 
 <ol>
-<li><strong>La interesada</strong> — La relación transaccional clásica: compro porque me conviene, vendo porque me beneficia. Es la relación empresa-cliente tradicional.</li>
-<li><strong>La placentera</strong> — Estamos juntos porque nos divertimos, porque hay disfrute. Marcas que entretienen, que generan momentos de placer.</li>
-<li><strong>La virtuosa</strong> — Fundamentada en valor mutuo, en crecimiento compartido, en admiración recíproca. Esta es la amistad aspiracional, la que las empresas que importan deben buscar.</li>
+<li><strong>La interesada</strong> — Compro porque me conviene. Vendes porque te beneficia. Pura transacción.</li>
+<li><strong>La placentera</strong> — Estamos juntos porque disfrutamos. Marcas que entretienen, que generan placer.</li>
+<li><strong>La virtuosa</strong> — Valor mutuo, crecimiento compartido, admiración recíproca. La que buscan las empresas que importan.</li>
 </ol>
 
 <div class="pull-quote">
@@ -494,14 +495,14 @@ border-radius:10px;padding:24px;
 
 <h2>Las fuerzas que mueven el mundo</h2>
 
-<p>Hay tres grandes categorías de fuerzas que configuran la realidad humana. Las <strong>fuerzas creativas</strong> —pensamiento, lenguaje, escritura, matemáticas, diseño— son las herramientas con las que construimos sentido. Las <strong>fuerzas científicas</strong> —física, química, biología— son las leyes que enmarcan lo posible. Y las <strong>fuerzas sociales</strong> —capitalismo, poder, política, religión, amor, miedo— son las corrientes que dirigen el comportamiento colectivo.</p>
+<p>Tres categorías de fuerzas configuran lo real. Las <strong>creativas</strong> — pensamiento, lenguaje, escritura, diseño — construyen sentido. Las <strong>científicas</strong> — física, química, biología — enmarcan lo posible. Las <strong>sociales</strong> — capitalismo, poder, religión, amor, miedo — dirigen el comportamiento colectivo.</p>
 
-<p>De todas ellas, hay una que merece atención especial: el lenguaje.</p>
+<p>De todas, una merece atención especial: el lenguaje.</p>
 
 <div class="concept-card fade-in">
 <h4>Wittgenstein</h4>
 <p>«El lenguaje construye la realidad. Los límites del lenguaje son los límites del pensamiento.»</p>
-<p>El lenguaje puede que sea la fuerza más poderosa creada por la humanidad. No solo describe el mundo: lo crea. Cada palabra que elegimos, cada frase que articulamos, configura lo que es posible pensar y, por tanto, lo que es posible hacer.</p>
+<p>El lenguaje no describe el mundo: lo crea. Cada palabra configura lo posible. Cada frase delimita lo pensable.</p>
 </div>
 
 <div class="slide-figure fade-in">
@@ -519,15 +520,15 @@ border-radius:10px;padding:24px;
 
 <h3>George Lakoff y los marcos mentales</h3>
 
-<p>George Lakoff, lingüista cognitivo de Berkeley, demostró que nuestras decisiones no nacen de los hechos sino de los marcos mentales a través de los cuales interpretamos esos hechos. Su libro <em>No pienses en un elefante</em> es una lección magistral sobre cómo el lenguaje metafórico, la exacerbación de instintos y la apelación a la emoción desde la moralidad determinan el pensamiento.</p>
+<p>Lakoff demostró algo incómodo: nuestras decisiones no nacen de los hechos, sino de los marcos a través de los que los interpretamos. <em>No pienses en un elefante</em> es la lección magistral.</p>
 
-<p>Los marcos funcionan en política —«sistema de bienestar» frente a «paguita», «élite» frente a «casta»— y funcionan exactamente igual en producto y marca: «el Airbnb de los campings», «el Spotify de los libros». Quien controla el marco, controla la conversación.</p>
+<p>«Sistema de bienestar» frente a «paguita». «Élite» frente a «casta». «El Airbnb de los campings». «El Spotify de los libros». Quien controla el marco, controla la conversación.</p>
 
 <h3>Foucault, la normalidad y el poder</h3>
 
-<p>Michel Foucault nos enseñó que el poder clasifica, controla y establece el concepto de normalidad. «El poder vigila y castiga a todo aquello que se sale de la norma.» Lo normal no es lo mismo que lo correcto. Entender esta distinción es fundamental para cualquier persona que quiera crear una empresa que desafíe el statu quo.</p>
+<p>Foucault: el poder clasifica, controla, establece qué es normal. Lo normal no es lo correcto. Entender esa distinción es condición para desafiar el <em>statu quo</em>.</p>
 
-<p>Desde los años 50, la normalidad dejó de ser dictada exclusivamente por el poder institucional. La televisión, la radio, el rock and roll y después internet democratizaron —para bien y para mal— la capacidad de crear marcos de normalidad.</p>
+<p>Desde los 50, la normalidad dejó de ser monopolio institucional. Televisión, radio, rock and roll, internet. Democratizaron — para bien y para mal — la capacidad de crear marcos de normalidad.</p>
 
 <div class="slide-figure fade-in">
 <img loading="lazy" src="slides/1_ser_y_estar/export/export.030.jpeg" alt="Las narrativas son realidades empaquetadas">
@@ -536,9 +537,9 @@ border-radius:10px;padding:24px;
 
 <h2>Las narrativas son realidades empaquetadas</h2>
 
-<p><strong>David Foster Wallace</strong>, en su célebre discurso en la ceremonia de graduación del Kenyon College en 2005, contó la historia de dos peces jóvenes que se cruzan con un pez viejo. «Buenos días, chicos. ¿Cómo está el agua?», les pregunta. Los dos peces jóvenes siguen nadando un rato hasta que uno mira al otro y dice: «¿Qué demonios es el agua?»</p>
+<p><strong>David Foster Wallace</strong>, Kenyon College, 2005. Dos peces jóvenes se cruzan con un pez viejo. «¿Cómo está el agua?» Siguen nadando. Uno mira al otro: «¿Qué demonios es el agua?»</p>
 
-<p>Las narrativas son ese agua. Nos rodean, nos condicionan toda la vida e influyen en lo que somos y lo que hacemos. Son invisibles precisamente porque son omnipresentes. Crean la realidad, definen lo correcto y lo incorrecto, establecen la normalidad. Nuestras creencias y convenciones crean la normalidad en la que vivimos.</p>
+<p>Las narrativas son ese agua. Nos rodean, nos condicionan, nos construyen. Son invisibles porque son omnipresentes. Crean la realidad. Definen lo correcto. Establecen la normalidad en la que vivimos sin saberlo.</p>
 
 <div class="pull-quote">
 «Las narrativas son realidades empaquetadas —y a veces invisibles—. Son productos, ideas, conceptos que configuran nuestra manera de ver y estar en el mundo.»
@@ -566,27 +567,27 @@ border-radius:10px;padding:24px;
 </div>
 </div>
 
-<p><strong>Iván Redondo</strong>, estratega político, identificó tres emociones que más mueven a las masas: <strong>miedo, rechazo y esperanza</strong>. Estamos en una época de cambio donde el dato y los valores económicos han perdido importancia relativa frente a la emoción. Antes me emociono y luego pienso. Los lemas históricos que han calado en la sociedad —«Es la economía, estúpido» de Clinton, «España va bien» de Aznar— son prueba de que un buen marco mental puede redefinir una realidad entera.</p>
+<p><strong>Iván Redondo</strong> identificó las tres emociones que mueven masas: <strong>miedo, rechazo y esperanza</strong>. Primero me emociono, luego pienso. «Es la economía, estúpido.» «España va bien.» Un buen marco mental redefine una realidad entera.</p>
 
-<h3>Giovanni Sartori y el Homo Videns</h3>
+<h3>Giovanni Sartori y el <em>Homo Videns</em></h3>
 
-<p>Sartori advirtió que la esclavitud a lo visual, la sobrecarga de estímulos visuales y la constante exposición a imágenes hace que nuestro pensamiento abstracto se atrofie. Los mensajes caen en burdas simplificaciones, perdemos la capacidad de entender matices y eso es devastador para la democracia y para la calidad de las decisiones. El umbral de atención baja, el literalismo avanza, la incapacidad de abstracción se instala.</p>
+<p>Sartori advirtió lo que ahora vivimos: la esclavitud a lo visual atrofia el pensamiento abstracto. El umbral de atención baja. El literalismo avanza. La incapacidad de abstracción se instala. Devastador para la democracia. Devastador para la calidad de nuestras decisiones.</p>
 
 <h2>Historia de las narrativas</h2>
 
-<p>¿Qué une a la gente? Ejércitos, oro, banderas, historias. Nada es más poderoso que una buena historia. Nos hacemos adictos a las historias porque nos dejamos llevar por las emociones. Lo que no se ve no existe.</p>
+<p>¿Qué une a la gente? Ejércitos, oro, banderas, historias. Nada más poderoso que una buena historia. Lo que no se ve no existe.</p>
 
-<p>A lo largo de los siglos, las narrativas dominantes han ido configurando el mundo que habitamos:</p>
+<p>Las narrativas dominantes configuran el mundo que habitamos:</p>
 
 <ul>
 <li>La <strong>Revolución Francesa</strong> instaló la narrativa de la libertad.</li>
-<li>El <strong>Romanticismo</strong> —el sentimiento como reacción a la razón— engendró los nacionalismos.</li>
-<li>El <strong>Liberalismo y el Capitalismo</strong> trajeron la narrativa de la meritocracia: si trabajas duro, lo consigues.</li>
-<li><strong>Hollywood</strong> se convirtió en la máquina de instaurar narrativas más potente de la historia.</li>
-<li>El <strong>Sueño Americano</strong> articuló la idea de una tierra de oportunidades. Europa, por su parte, construyó su sueño alrededor del Renacimiento, las artes y el estado de bienestar.</li>
+<li>El <strong>Romanticismo</strong> engendró los nacionalismos. Sentimiento contra razón.</li>
+<li>El <strong>Liberalismo y el Capitalismo</strong> trajeron la meritocracia: si trabajas duro, lo consigues.</li>
+<li><strong>Hollywood</strong>: la máquina de instaurar narrativas más potente de la historia.</li>
+<li>El <strong>Sueño Americano</strong> articuló la tierra de oportunidades. Europa construyó el suyo sobre Renacimiento, artes y estado de bienestar.</li>
 </ul>
 
-<p>El amor romántico, que define nuestra sociedad occidental, fue algo que aprendimos: una narrativa que nace en el siglo XIV-XV y que determina nuestra manera de ver el mundo, cómo actuamos y cómo nos relacionamos.</p>
+<p>Hasta el amor romántico fue algo que aprendimos. Una narrativa del siglo XIV-XV que determina cómo nos relacionamos. Todo es narrativa. Todo.</p>
 
 <div class="slide-gallery fade-in">
 <img loading="lazy" src="slides/1_ser_y_estar/export/export.035.jpeg" alt="Chaplin Tiempos Modernos">
@@ -631,12 +632,12 @@ border-radius:10px;padding:24px;
 
 <h2>El hacer: persona y producto</h2>
 
-<p>¿Para qué sirven los productos más allá de su función? Esta pregunta, aparentemente sencilla, abre tres dimensiones enormes:</p>
+<p>¿Para qué sirven los productos más allá de su función?</p>
 
 <ol class="gold-list">
-<li><strong>Crean la realidad y la normalidad</strong> — Los productos definen qué es posible, qué es deseable, qué es normal.</li>
+<li><strong>Crean la realidad y la normalidad</strong> — Definen qué es posible, deseable, normal.</li>
 <li><strong>Crean riqueza o pobreza</strong> — Cada producto es una decisión económica con consecuencias sociales.</li>
-<li><strong>Nos transforman</strong> — Nos empoderan o nos atrofian. ¿Trabajamos para que las personas sean las mejores versiones de sí mismas o trabajamos para que se atrofien?</li>
+<li><strong>Nos transforman</strong> — Nos empoderan o nos atrofian. ¿Para qué versión de nosotros trabajamos?</li>
 </ol>
 
 <div class="pull-quote">
@@ -644,9 +645,9 @@ border-radius:10px;padding:24px;
 <span class="attribution">— Marshall McLuhan (atrib.)</span>
 </div>
 
-<p>En 1968, la fotografía <em>Earthrise</em> —la primera imagen de la Tierra desde el espacio— lo cambió todo. Por primera vez, la humanidad se vio a sí misma como un todo conectado. Esa imagen fue el punto de partida del movimiento ecologista. Un producto —una cámara, un cohete, una película fotográfica— nos cambió como especie.</p>
+<p>1968. <em>Earthrise</em>: la primera imagen de la Tierra desde el espacio. La humanidad se vio como un todo conectado. Nació el movimiento ecologista. Un producto — cámara, cohete, película — nos cambió como especie.</p>
 
-<p>¿Qué objetos nos han cambiado la vida? Fuego, anticonceptivos, rueda, reloj, imprenta, papiro, electricidad, jeringuilla, bombilla, ordenador, televisión. <strong>Una persona puede llegar a cambiar el mundo.</strong> Philo Farnsworth, adolescente, concibió la televisión. Los ordenadores, como intuían en <em>Halt and Catch Fire</em>: «Computers aren't the thing. They're the thing that gets us to the thing.»</p>
+<p>Fuego, anticonceptivos, rueda, reloj, imprenta, electricidad, ordenador. <strong>Una persona puede cambiar el mundo.</strong> Philo Farnsworth, adolescente, concibió la televisión. Como decían en <em>Halt and Catch Fire</em>: «Computers aren't the thing. They're the thing that gets us to the thing.»</p>
 
 <div class="slide-figure fade-in">
 <img loading="lazy" src="slides/2_hacer/export/export.010.jpeg" alt="Productos que cambiaron la humanidad">
@@ -678,9 +679,9 @@ border-radius:10px;padding:24px;
 </div>
 </div>
 
-<h3>La narrativa dirige la creación del producto</h3>
+<h3>La narrativa dirige el producto</h3>
 
-<p>La narrativa buena es antes del producto. La narrativa dirige el hacer. Tu producto también es el mensaje. Lo que hacemos también es narrativa, marca, cultura.</p>
+<p>La narrativa va antes del producto. Tu producto también es el mensaje. Lo que haces es narrativa, marca, cultura. Todo a la vez.</p>
 
 <h2>Empresas que importan: casos de estudio</h2>
 
@@ -688,8 +689,8 @@ border-radius:10px;padding:24px;
 
 <div class="case-card fade-in">
 <h4>Olivetti — «Quiero que produzca belleza y libertad»</h4>
-<p>Adriano Olivetti creía que era posible crear un nuevo tipo de empresa que fuera más allá del capitalismo y el socialismo. La «Cultura Olivettiana» fue revolucionaria: salarios iguales hombre-mujer en 1929, 40% de mujeres en plantilla, guarderías en oficinas, permisos de maternidad de 9 meses, clases de caligrafía, filosofía, literatura e historia del arte. Espacios abiertos integrados en la naturaleza. De 300 trabajadores en 1929 a 80.000. Ivrea, su sede, es Patrimonio UNESCO.</p>
-<p><em>«Quiero que Olivetti no sea solo una fábrica, sino un modelo, un estilo de vida. ¡Quiero que produzca libertad y belleza porque serán ellos, libertad y belleza, que nos digan cómo ser felices!»</em></p>
+<p>Adriano Olivetti quiso crear una empresa más allá del capitalismo y del socialismo. Salarios iguales hombre-mujer en 1929. Guarderías. Permisos de maternidad de 9 meses. Clases de filosofía y caligrafía. De 300 trabajadores a 80.000. Ivrea, Patrimonio UNESCO.</p>
+<p><em>«¡Quiero que produzca libertad y belleza porque serán ellos, libertad y belleza, que nos digan cómo ser felices!»</em></p>
 </div>
 
 <div class="slide-gallery fade-in">
@@ -731,20 +732,20 @@ border-radius:10px;padding:24px;
 
 <div class="case-card fade-in">
 <h4>Braun — Fritz Eichler, diseñador de procesos</h4>
-<p>Fritz Eichler no diseñaba productos: diseñaba procesos. Su principio fundamental: «El diseño no debe maquillar el producto a posteriori. Debe estar involucrado desde el principio.» Si Fritz no las hubiera expresado con palabras —haciéndolas accesibles y accionables para todos—, las ideas de Braun seguirían siendo solo ideas. Fue la cooperación de dos personas muy diferentes que se complementaron perfectamente: Erwin Braun inició la reorientación, Fritz Eichler concretó las ideas con palabras.</p>
+<p>Fritz Eichler no diseñaba productos: diseñaba procesos. «El diseño no debe maquillar el producto a posteriori. Debe estar desde el principio.» Sin sus palabras, las ideas de Braun seguirían siendo solo ideas. Erwin Braun inició la reorientación. Fritz Eichler la concretó con lenguaje. Dos personas diferentes que se complementaron a la perfección.</p>
 </div>
 
 <div class="case-card fade-in">
-<h4>Sony — Akio Morita y el Made in Japan</h4>
-<p>Sony cambió la marca de un país entero. El «Made in Japan» era sinónimo de productos baratos hasta que Sony lo convirtió en sinónimo de innovación y calidad extrema. Su manifiesto fundacional es uno de los primeros documentos de cultura corporativa de la historia. Morita decía: «Adelante y haz lo que creas correcto. Si cometes un error, aprenderás. Solo no cometas el mismo error dos veces.» La importancia de vender sensaciones: cuando lanzaron la radio de transistores «de bolsillo» en 1957, cosieron bolsillos más grandes en las camisas de los vendedores para que el aparato cupiera.</p>
+<h4>Sony — Akio Morita y el <em>Made in Japan</em></h4>
+<p>Sony cambió la marca de un país entero. <em>Made in Japan</em> era barato hasta que Sony lo convirtió en excelencia. Su manifiesto fundacional: uno de los primeros documentos de cultura corporativa de la historia. Morita: «Haz lo que creas correcto. Si te equivocas, aprenderás. Solo no cometas el mismo error dos veces.» Cuando lanzaron la radio «de bolsillo» en 1957, cosieron bolsillos más grandes en las camisas de los vendedores. Vender sensaciones.</p>
 </div>
 
 <div class="case-card fade-in">
 <h4>Amazon — La cultura de la escritura</h4>
-<p>Jeff Bezos instauró una cultura radical de la escritura. Las ideas se expresan en documentos de seis páginas de narrativa, con frases completas —no puntos para PowerPoints—. Antes de cada reunión, todos los asistentes leen el documento en silencio. Escribir obliga a pensar con rigor. La narrativa como herramienta de gestión.</p>
+<p>Bezos prohibió los PowerPoints. Las ideas se expresan en documentos de seis páginas con frases completas. Antes de cada reunión, lectura en silencio. Escribir obliga a pensar con rigor. La narrativa como herramienta de gestión.</p>
 </div>
 
-<p>Otros casos esenciales: <strong>Patagonia</strong> («Estamos en los negocios para salvar al planeta», arquetipo forajido, emoción samaritana), <strong>Apple</strong> (Steve Jobs entendió que los ordenadores debían ser «bicicletas para nuestras mentes»), <strong>CashApp</strong> («Cash is culture», una agencia creativa interna y una colección de ropa: más arte que finanzas).</p>
+<p><strong>Patagonia</strong>: «Estamos en los negocios para salvar al planeta.» <strong>Apple</strong>: los ordenadores como «bicicletas para nuestras mentes». <strong>CashApp</strong>: «Cash is culture» — más arte que finanzas. Empresas que importan.</p>
 
 <div class="video-grid">
 <div class="video-card" data-src="slides/2_hacer/videos/video-bezos-amazon-cultura-escritura-no-powerpoints-102531.mp4">
@@ -823,7 +824,7 @@ border-radius:10px;padding:24px;
 <p class="hero-part-label">Parte II</p>
 <div class="hero-line"></div>
 <h2 class="hero-title">NARRAR</h2>
-<p class="hero-subtitle">La estrategia invisible: cosmovisión, framework, concepto y la historia de la publicidad como espejo del siglo</p>
+<p class="hero-subtitle">La estrategia invisible. Cosmovisión, concepto, marco mental. Y la publicidad como espejo del siglo.</p>
 </div>
 </div>
 
@@ -832,26 +833,26 @@ border-radius:10px;padding:24px;
 
 <h2>El framework: de la cosmovisión al producto</h2>
 
-<p>Si la Parte I fue sobre entender al ser humano, la Parte II es sobre articular esa comprensión en un sistema operativo para la empresa. La narrativa no es contar. Es gestión transversal. Es tu estrategia. Es tu ética y estética. Es tu esencia.</p>
+<p>La narrativa no es contar. Es gestión transversal. Tu estrategia. Tu ética y estética. Tu esencia.</p>
 
 <div class="framework-box fade-in">
 <h4>Las 5 capas de una empresa</h4>
 <p style="text-align:center;font-size:1.15rem;color:var(--text-bright);margin:16px 0">
 <strong style="color:var(--gold)">Cosmovisión</strong> → Narrativa → Marca → Producto/Negocio → Cultura
 </p>
-<p>La cosmovisión es el centro. Todo irradia desde ahí. La narrativa articula esa cosmovisión. La marca la hace perceptible. El producto la materializa. La cultura la sostiene en el tiempo.</p>
+<p>La cosmovisión es el centro. Todo irradia desde ahí. La narrativa la articula. La marca la hace perceptible. El producto la materializa. La cultura la sostiene.</p>
 </div>
 
 <div class="concept-card fade-in">
 <h4>Los 3 pilares del programa</h4>
 <ol>
-<li><strong>Narrativa para liderar</strong> — Tu cosmovisión articulada en todo lo que haces, accionando propósito, misión, valores, concepto y mensajes clave.</li>
-<li><strong>Producto para confiar</strong> — Diseñar soluciones responsables con tecnología y datos que respeten tu tiempo y tus derechos.</li>
-<li><strong>Comunidad para crecer</strong> — Los negocios son relaciones de confianza. Crear momentos, incentivos y vínculos con objetivos comunes.</li>
+<li><strong>Narrativa para liderar</strong> — Cosmovisión accionada: propósito, misión, valores, concepto, mensajes clave.</li>
+<li><strong>Producto para confiar</strong> — Soluciones responsables que respeten tu tiempo y tus derechos.</li>
+<li><strong>Comunidad para crecer</strong> — Los negocios son relaciones de confianza. Momentos, vínculos, objetivos comunes.</li>
 </ol>
 </div>
 
-<p>La narrativa no puede encajonarse en el equipo de marca como tradicionalmente ha sucedido. <strong>La narrativa tiene que ser agua que riegue a toda la organización.</strong> El agua que da vida a la empresa. Generalmente nace del CEO y tiene que irrigar a toda la organización, ayudándose de personas de otras áreas que dirigen y articulan en todas las direcciones.</p>
+<p>La narrativa no se encajona en el equipo de marca. <strong>La narrativa es agua que riega toda la organización.</strong> Nace del CEO. Irriga cada área. Cada persona la dirige y articula en su dirección.</p>
 
 <div class="slide-figure fade-in">
 <img loading="lazy" src="slides/3_narrative_market_fit/export/export.010.jpeg" alt="Framework Narrative Market Fit">
@@ -867,19 +868,19 @@ border-radius:10px;padding:24px;
 
 <h2>Cosmovisión: no «visión», cosmovisión</h2>
 
-<p>Las empresas son agentes sociales para crear economía y sociedad. La cosmovisión —un concepto deliberadamente más ambicioso que la «visión» corporativa convencional— incluye propósito, misión, valores y principios, objetivos y ejes estratégicos, clientes y mercado, industria y sociedad, conciencia y legado, manifiesto. Debe incluir objetivos de negocio para ser sincera y honesta. Su formato ideal es un documento A4 enriquecido continuamente.</p>
+<p>Las empresas son agentes sociales. La cosmovisión — deliberadamente más ambiciosa que la «visión» corporativa — incluye propósito, misión, valores, principios, ejes estratégicos, clientes, mercado, conciencia, legado, manifiesto. Debe incluir objetivos de negocio para ser honesta. Un documento A4 vivo, enriquecido sin cesar.</p>
 
 <h3>Propósito — «Tu porqué»</h3>
 
-<p>El propósito es por qué haces lo que haces más allá de lo económico. Una frase de 4-6 palabras que empieza con verbo. Auténtico, realista, creíble e ilusionante. Exagerar equivale a postureo ineficiente. No todas las empresas lo tienen y <strong>no pasa nada</strong>. Ejemplo de Tramontana: «Elevar el nivel de quienes crean empresas y soluciones.»</p>
+<p>Por qué haces lo que haces más allá del dinero. Una frase de 4-6 palabras que empieza con verbo. Auténtica, realista, creíble. Exagerar es postureo. No todas las empresas lo tienen y <strong>no pasa nada</strong>. Tramontana: «Elevar el nivel de quienes crean empresas y soluciones.»</p>
 
 <h3>Misión — «Tu qué»</h3>
 
-<p>La misión es el producto ideal que vas a construir para alcanzar tu propósito. La analogía es perfecta: el propósito de la Iglesia en Latinoamérica en el siglo XVI era evangelizar; la misión era construir iglesias.</p>
+<p>El producto ideal que construirás para cumplir tu propósito. Analogía: el propósito de la Iglesia en Latinoamérica era evangelizar. La misión: construir iglesias.</p>
 
 <h3>Valores vs. Principios — «Tu cómo»</h3>
 
-<p>Los <strong>valores</strong> son conceptos abstractos: honestidad, transparencia, innovación. Quedan muy bien en un póster, pero son poco útiles en el día a día. Los <strong>principios</strong> son mensajes y comportamientos que aterrizan los valores. Deben ser MUY accionables.</p>
+<p>Los <strong>valores</strong> son abstractos: honestidad, transparencia, innovación. Quedan bien en un póster. Los <strong>principios</strong> aterrizan los valores en comportamientos. Deben ser MUY accionables.</p>
 
 <div class="two-col fade-in">
 <div class="col">
@@ -894,15 +895,15 @@ border-radius:10px;padding:24px;
 
 <h3>Ejes estratégicos — «Las velas del barco»</h3>
 
-<p>Son los criterios y «must-have» para las tomas de decisiones más importantes e incluso las más pequeñas. Ejemplo de INESDI con sus 5 E: Empleabilidad, Especialización, Esperanza, Elevación, Estilazo.</p>
+<p>Criterios para las decisiones grandes y las pequeñas. Las velas del barco. INESDI con sus 5 E: Empleabilidad, Especialización, Esperanza, Elevación, Estilazo.</p>
 
 <h3>Manifiesto</h3>
 
-<p>Responde a «¿En qué crees?». Incluye propósito, misión, valores, ejes y referencia al legado. Frases directas, sinceras e inspiradoras.</p>
+<p>¿En qué crees? Propósito, misión, valores, ejes, legado. Frases directas, sinceras, que inspiren.</p>
 
 <h3>Mensajes clave</h3>
 
-<p>Las FAQ ontológicas de toda la organización. Incluyen frases y definiciones, go-to-market, features, benefits, elevator pitch, paid media, comunicaciones internas, héroes y villanos, touchpoints.</p>
+<p>Las FAQ ontológicas de la organización: frases, definiciones, go-to-market, elevator pitch, paid media, comunicaciones internas, héroes y villanos, touchpoints.</p>
 
 <div class="concept-card fade-in">
 <h4>Estructura Go-to-market (Geoffrey Moore)</h4>
@@ -911,11 +912,11 @@ border-radius:10px;padding:24px;
 
 <h2>Concepto = Marco mental con SHIFT</h2>
 
-<p>«Las empresas que ayuden a los clientes a cambiar su forma de pensar serán más eficientes en resolver problemas y vender soluciones.» Un buen concepto se destila respondiendo a: ¿Cuál es tu esencia? ¿Qué eres? ¿En qué se resume tu propuesta de valor y diferenciación?</p>
+<p>Las empresas que cambien la forma de pensar de sus clientes serán más eficientes en resolver problemas y vender soluciones. ¿Cuál es tu esencia? ¿En qué se resume tu diferenciación?</p>
 
-<p>El concepto radica en identificar un <strong>shift</strong>: la hipótesis de cambio para que el cliente se decida a usar tu producto. Se construye con herramientas lingüísticas: sustantivos, metáforas, analogías, eslóganes, neologismos, estereotipos. «El Spotify de los libros», «el Twitch de la educación», «el Barça es el Disney del fútbol», «Més que un club», «Think Different».</p>
+<p>El concepto radica en un <strong>shift</strong>: la hipótesis de cambio que empuja al cliente. Se construye con lenguaje: sustantivos, metáforas, analogías, neologismos. «El Spotify de los libros.» «Més que un club.» «Think Different.»</p>
 
-<p>El caso de <strong>Ignaz Semmelweis</strong> es revelador: descubrió la existencia de gérmenes y bacterias a finales del siglo XIX, pero la comunidad médica rechazó su teoría porque no pudo articularla en un marco mental comprensible. Necesitaban una explicación más humana. Sin el marco adecuado, ni siquiera la verdad consigue avanzar.</p>
+<p><strong>Ignaz Semmelweis</strong> descubrió los gérmenes. La comunidad médica lo rechazó porque no supo articularlo en un marco comprensible. Sin el marco adecuado, ni la verdad consigue avanzar.</p>
 
 <div class="pull-quote">
 «La narrativa no es storytelling. La narrativa es storyframing.»
@@ -945,7 +946,7 @@ border-radius:10px;padding:24px;
 
 <h2>Las 16 preguntas de investigación</h2>
 
-<p>Antes de construir nada, hay una fase de investigación y entrevistas con equipos, clientes, inversores. Ocho preguntas miran hacia dentro (aura interna) y ocho miran hacia fuera (aura externa). Cada pregunta tiene un propósito oculto: analizar el perfil psicológico del líder, detectar coherencia entre equipos, identificar si el propósito es genuino o meramente económico.</p>
+<p>Antes de construir nada, investiga. Entrevista equipos, clientes, inversores. Ocho preguntas miran hacia dentro. Ocho miran hacia fuera. Cada una tiene un propósito oculto: detectar coherencia, analizar al líder, verificar si el propósito es genuino.</p>
 
 <div class="two-col fade-in">
 <div class="col">
@@ -978,9 +979,9 @@ border-radius:10px;padding:24px;
 
 <h2>El metaverso como caso narrativo</h2>
 
-<p>En 2021, Zuckerberg presentó el Metaverso al mundo. Desde los primeros minutos del vídeo enmarcó tanto a él como a Meta en los pioneros del futuro: «Esto es el futuro. Nosotros vamos a crear el futuro.» Para ganar <em>autoritas</em> —y por tanto credibilidad—, Meta se asoció con figuras relevantes de la historia. Los verbos y acciones asociados al metaverso eran deliberados: explorar, imaginar, experiencia, sentir, flotar.</p>
+<p>Zuckerberg, 2021. «Esto es el futuro. Nosotros vamos a crearlo.» Verbos deliberados: explorar, imaginar, sentir, flotar. Para ganar <em>autoritas</em>, Meta se asoció con figuras relevantes de la historia.</p>
 
-<p>El resultado a día de hoy demuestra que un marco mental sin sustancia real colapsa. Meta no sabía si el metaverso era B2C o B2B. La distinción entre <strong>simulación</strong> (que falsifica una experiencia) e <strong>inmersión</strong> (que te traslada a otro universo, evocas, sientes) es clave. <strong>Baudrillard</strong> lo anticipó: el simulacro es una copia de la realidad que sentimos como más real que el original, un artificio que damos por bueno y que, al aceptarse colectivamente, se convierte en real.</p>
+<p>Un marco mental sin sustancia colapsa. Meta no sabía si el metaverso era B2C o B2B. La distinción entre <strong>simulación</strong> — falsificar una experiencia — e <strong>inmersión</strong> — trasladarte a otro universo — es clave. <strong>Baudrillard</strong> lo anticipó: el simulacro, al aceptarse colectivamente, se convierte en real.</p>
 
 <div class="sep"></div>
 
@@ -1009,7 +1010,7 @@ border-radius:10px;padding:24px;
 
 <h2>Historia de la publicidad: el espejo del siglo</h2>
 
-<p>El consumismo y la manera de vender bienes ha tenido tres grandes etapas, según la evolución cultural y la saturación del mercado.</p>
+<p>Tres etapas del consumismo. Tres espejos de la evolución cultural.</p>
 
 <table class="fade-in">
 <thead>
@@ -1040,9 +1041,9 @@ border-radius:10px;padding:24px;
 
 <h3>La revolución creativa: Bill Bernbach</h3>
 
-<p>La era de la identidad arranca en los años 50 con la edad dorada de los «Mad Men» —apodo de los publicistas de Madison Avenue—. <strong>Bill Bernbach</strong> revolucionó el método de trabajo: fue la primera persona que juntó al copywriter y al dibujante en un mismo equipo (antes trabajaban por separado). Lo hizo tras trabajar con el mítico <strong>Paul Rand</strong>, diseñador del logo de IBM. Paul Rand también trabajó con Steve Jobs, a través de Susan Kare, para la creación del logo de NeXT.</p>
+<p>Años 50. Edad dorada de los <em>Mad Men</em>. <strong>Bill Bernbach</strong> juntó por primera vez al copywriter con el dibujante — antes trabajaban separados. Lo hizo tras trabajar con <strong>Paul Rand</strong>, el del logo de IBM. Rand también diseñó NeXT para Jobs, vía Susan Kare.</p>
 
-<p>Bernbach creía firmemente que la mejor publicidad es el boca a boca. Su campaña <strong>«Think Small»</strong> de 1959 para Volkswagen está considerada la campaña más importante del siglo XX y seguramente la mejor de la historia. «Think Small» cambió el mundo de la publicidad para siempre.</p>
+<p>La mejor publicidad es el boca a boca. <strong>«Think Small»</strong>, 1959, Volkswagen. La campaña más importante del siglo XX. Cambió la publicidad para siempre.</p>
 
 <div class="pull-quote">
 «Let us prove to the world that good taste, good art, and good writing can be good selling.»
@@ -1051,15 +1052,15 @@ border-radius:10px;padding:24px;
 
 <h3>Las guerras de marca: Cola Wars, Burger Wars, PC Wars</h3>
 
-<p>Entre los años 70 y 90, las grandes marcas descubrieron que la rivalidad narrativa vendía más que el producto mismo. Las Cola Wars entre Coca-Cola y Pepsi, las Burger Wars entre McDonald's y Burger King, las PC Wars entre Apple y IBM —y después Apple y Microsoft— definieron décadas enteras de cultura popular. Siempre hay buenos y villanos, necesitas al malo. Cuando tienes a quién compararte o enfrentarte, la narrativa cobra fuerza.</p>
+<p>Años 70-90. Las marcas descubrieron que la rivalidad narrativa vende más que el producto. Coca-Cola contra Pepsi. McDonald's contra Burger King. Apple contra IBM, después contra Microsoft. Siempre necesitas al villano. La narrativa cobra fuerza cuando tienes contra quién medirte.</p>
 
 <h3>Nike: la evolución narrativa definitiva</h3>
 
-<p>Nike es quizás el caso más completo de evolución narrativa en la historia del branding. <strong>Dan Wieden</strong> creó «Just Do It» en 1988, inspirándose en las últimas palabras de un condenado a muerte. La frase trascendió la publicidad para convertirse en filosofía de vida. Pero Nike no se detuvo ahí. La campaña de <strong>Colin Kaepernick</strong> en 2018 —«Believe in something. Even if it means sacrificing everything»— inauguró definitivamente la era del propósito en el branding mainstream. <strong>Dream Crazy</strong> y <strong>Dream Crazier</strong> completaron la trilogía.</p>
+<p><strong>Dan Wieden</strong> creó «Just Do It» en 1988 inspirándose en las últimas palabras de un condenado a muerte. La frase trascendió la publicidad. Se hizo filosofía de vida. En 2018, <strong>Kaepernick</strong>: «Believe in something. Even if it means sacrificing everything.» La era del propósito en el branding mainstream. <em>Dream Crazy</em>. <em>Dream Crazier</em>. La trilogía completa.</p>
 
 <h3>Apple: «1984» y «Think Different»</h3>
 
-<p>En 1984, Apple presentó el Macintosh con un anuncio dirigido por Ridley Scott que se emitió una sola vez durante la Super Bowl. En 1997, al borde de la quiebra, Steve Jobs lanzó «Think Different»: un concepto que se hizo para vender pero terminó afectando al ser y hacer de toda la compañía y de sus clientes. En 2007 presentó el iPhone al mundo: Apple «reinventa» el teléfono. La importancia de los verbos.</p>
+<p>1984: Ridley Scott, Super Bowl, una sola emisión. 1997, al borde de la quiebra: «Think Different» — un concepto hecho para vender que terminó transformando el ser y el hacer de toda la compañía. 2007: Apple «reinventa» el teléfono. La importancia de los verbos.</p>
 
 <div class="slide-figure fade-in">
 <img loading="lazy" src="slides/4_narrative_market_fit2/export/export.020.jpeg" alt="Historia de la publicidad">
@@ -1136,22 +1137,22 @@ border-radius:10px;padding:24px;
 
 <h2>Gestión de la complejidad</h2>
 
-<p>Llegados a este punto, conviene detenerse en una lección fundamental sobre estrategia impartida por <strong>Javier Recuenco</strong>: la diferencia entre un problema complicado y un problema complejo.</p>
+<p><strong>Javier Recuenco</strong> enseñó una distinción fundamental: lo complicado no es lo complejo.</p>
 
 <div class="two-col fade-in">
 <div class="col">
 <h4>Problema complicado</h4>
-<p style="font-size:.92rem">Conjunto claro de medios para alcanzar un estado objetivo definido. Hay un camino, aunque sea difícil.</p>
+<p style="font-size:.92rem">Medios claros, objetivo definido. Hay camino, aunque cueste.</p>
 </div>
 <div class="col">
 <h4>Problema complejo</h4>
-<p style="font-size:.92rem">No hay definición clara del problema, estado objetivo difuso, medios no claros. Todo es susceptible de volverse un problema complejo.</p>
+<p style="font-size:.92rem">Problema difuso, objetivo difuso, medios difusos. Todo puede volverse complejo.</p>
 </div>
 </div>
 
 <h3>Atractores (Richard Rumelt)</h3>
 
-<p>Un estado atractor proporciona un sentido de dirección para la evolución futura de una industria. «IP everywhere» permitió el despunte de Cisco, Napster/iTunes/Spotify, IoT. Los cinco mega-atractores actuales son: espacios hiperpersonales, megatrends tecnológicos (Big Data, AI, VR, Blockchain, IoT, SaaS), Agenda 2030, Customer Centricity + Personotecnia, y Crunching Business Models (ciclos de disrupción ultracortos).</p>
+<p>Un atractor da dirección a la evolución de una industria. «IP everywhere» hizo posible Cisco, Napster, iTunes, Spotify, IoT. Los cinco mega-atractores actuales: espacios hiperpersonales, megatrends tecnológicos (Big Data, AI, VR, Blockchain, SaaS), Agenda 2030, Customer Centricity + Personotecnia, y Crunching Business Models — ciclos de disrupción ultracortos.</p>
 
 <div class="pull-quote">
 «La estrategia es renunciar.»
@@ -1163,22 +1164,22 @@ border-radius:10px;padding:24px;
 
 <h3>Strategy is Problem Solving (Rumelt)</h3>
 
-<p>Los tres pilares de la mala estrategia: fallo en la definición del desafío, confundir objetivos con estrategia, y malos objetivos estratégicos. La buena estrategia tiene tres elementos: diagnosis, marcos/guías/políticas, y toma de acciones coherentes.</p>
+<p>Mala estrategia: fallo en definir el desafío, confundir objetivos con estrategia, malos objetivos. Buena estrategia: diagnosis, marcos, acciones coherentes.</p>
 
 <h3>Las 4 técnicas de Nardone</h3>
 
-<p><strong>Giorgio Nardone</strong> desarrolló cuatro técnicas de problem solving estratégico que invierten la lógica convencional:</p>
+<p><strong>Giorgio Nardone</strong>: cuatro técnicas que invierten la lógica convencional.</p>
 
 <ol class="gold-list">
-<li><strong>Cómo empeorar</strong> — Si tuvieras que empeorar la situación, ¿qué harías? Definir lo que NO hay que hacer ilumina lo que SÍ hay que hacer.</li>
-<li><strong>Escenario más allá del problema</strong> — Si el problema desapareciera, ¿qué cambiaría? Visualizar el destino aclara el camino.</li>
-<li><strong>El escalador</strong> — Planificar la ruta desde la cima hacia abajo, no desde la base hacia arriba.</li>
-<li><strong>Pequeños pasos</strong> — «Piano, piano si va lontano.» La grandeza se construye con acciones diminutas.</li>
+<li><strong>Cómo empeorar</strong> — Definir lo que NO hay que hacer ilumina lo que SÍ.</li>
+<li><strong>Escenario más allá del problema</strong> — Si desapareciera, ¿qué cambiaría? Visualizar el destino aclara el camino.</li>
+<li><strong>El escalador</strong> — Planifica desde la cima hacia abajo.</li>
+<li><strong>Pequeños pasos</strong> — <em>«Piano, piano si va lontano.»</em> La grandeza se construye con acciones diminutas.</li>
 </ol>
 
 <h3>Sesgos cognitivos</h3>
 
-<p>Existen más de 170 sesgos cognitivos documentados. El <strong>efecto Dunning-Kruger</strong> es especialmente relevante: los menos competentes son los más confiados. Las cuatro trampas principales: demasiada información, inventar sentido, conclusiones prematuras y sesgo de confirmación.</p>
+<p>Más de 170 sesgos cognitivos documentados. El <strong>Dunning-Kruger</strong>: los menos competentes son los más confiados. Cuatro trampas: demasiada información, inventar sentido, conclusiones prematuras, sesgo de confirmación.</p>
 
 <div class="pull-quote">
 «Para cada problema complejo hay una respuesta clara, simple y equivocada.»
@@ -1237,7 +1238,7 @@ border-radius:10px;padding:24px;
 <p class="hero-part-label">Parte III</p>
 <div class="hero-line"></div>
 <h2 class="hero-title">MARCAR</h2>
-<p class="hero-subtitle">El aura percibida de valor: personalidad, emoción, causa, identidad y el camino de la comunidad</p>
+<p class="hero-subtitle">El aura percibida de valor. Personalidad. Emoción. Causa. Y el largo camino hacia la comunidad.</p>
 </div>
 </div>
 
@@ -1246,13 +1247,13 @@ border-radius:10px;padding:24px;
 
 <h2>Branding hoy: la trinidad de la marca</h2>
 
-<p>En los años 2020, hacer marca se resume en tres verbos: articular una <strong>personalidad</strong>, dominar una <strong>emoción</strong> y defender una <strong>causa</strong>. Las marcas son la nueva mitología moderna, decía Georges Lewi. Quieren tener creyentes. Harley-Davidson, Apple, Patagonia son marcas que definen un estilo de vida; las personas las adoptan de manera casi acrítica. La pregunta incómoda es: ¿branding es generar fans o pensamiento crítico? La respuesta de las empresas que importan es ambas cosas.</p>
+<p>Hacer marca en los años 2020 se resume en tres verbos: articular una <strong>personalidad</strong>, dominar una <strong>emoción</strong>, defender una <strong>causa</strong>. Las marcas son la nueva mitología, decía Lewi. Quieren creyentes. Harley-Davidson, Apple, Patagonia definen estilos de vida. ¿Branding es generar fans o pensamiento crítico? Las empresas que importan responden: ambas cosas.</p>
 
-<p>Muchas marcas están ocupando un vacío existencial que dejan las religiones e ideologías. Hay una burbuja alrededor del propósito, pero cada vez es más evidente que el branding sólido requiere los tres elementos. Esta etapa se inaugura con <strong>Dove</strong> (Real Beauty, 2004) y se consolida con <strong>Nike</strong> (Kaepernick, 2018).</p>
+<p>Las marcas ocupan el vacío que dejan religiones e ideologías. Hay burbuja de propósito, sí. Pero el branding sólido exige los tres elementos. Lo inauguró <strong>Dove</strong> (Real Beauty, 2004). Lo consolidó <strong>Nike</strong> (Kaepernick, 2018).</p>
 
 <h3>HXC — High-Expectation Customer</h3>
 
-<p>El HXC es la expectativa suprema o beneficio más aspiracional del cliente. Es la brújula del producto y la marca:</p>
+<p>La expectativa suprema del cliente. Brújula del producto y la marca:</p>
 
 <ul>
 <li><strong>Casa Blanca:</strong> «Ser la primera familia del país»</li>
@@ -1271,32 +1272,32 @@ border-radius:10px;padding:24px;
 
 <h3>Identidad visual</h3>
 
-<p>Logo, tipografía, colores, fotografía, vídeos. La identidad visual no es decoración: es la materialización de tu narrativa. «El fondo dirige la forma.» La tarjeta de Monzo —Hot Coral— se convirtió en objeto de deseo en un mundo minimalista, aspiracional, rebelde y joven. Lo visual es la primera interfaz con tu marca.</p>
+<p>Logo, tipografía, colores, fotografía, vídeo. No es decoración: es la materialización de tu narrativa. El fondo dirige la forma. La tarjeta Hot Coral de Monzo se convirtió en objeto de deseo. Lo visual es la primera interfaz con tu marca.</p>
 
 <h3>Identidad verbal</h3>
 
-<p>Dos conceptos que conviene no confundir:</p>
+<p>No confundir:</p>
 <ul>
-<li><strong>VOZ:</strong> La personalidad de la marca de forma escrita. Es constante, no cambia.</li>
-<li><strong>TONO:</strong> La adaptación de la voz a situaciones concretas. Es variable: no hablas igual en un onboarding que en un comunicado de crisis.</li>
+<li><strong>VOZ:</strong> La personalidad de la marca escrita. Constante.</li>
+<li><strong>TONO:</strong> La adaptación de la voz a cada situación. Variable. No hablas igual en un onboarding que en una crisis.</li>
 </ul>
 
 <h3>Naming: 8 criterios</h3>
 
-<p>Nombrar una marca es uno de los actos creativos más importantes y más difíciles. Hay 8 criterios a evaluar:</p>
+<p>Nombrar una marca: uno de los actos creativos más difíciles. Ocho criterios:</p>
 
 <ol class="gold-list">
-<li><strong>Memorabilidad</strong> — ¿Se recuerda fácilmente? ¿Pocas sílabas?</li>
-<li><strong>Asociación</strong> — ¿Encaja con tu propuesta de valor?</li>
+<li><strong>Memorabilidad</strong> — ¿Se recuerda? ¿Pocas sílabas?</li>
+<li><strong>Asociación</strong> — ¿Encaja con tu propuesta?</li>
 <li><strong>Distinción</strong> — ¿Es único?</li>
-<li><strong>Eugrafía</strong> — ¿Se escribe como se pronuncia?</li>
-<li><strong>Eufonía</strong> — ¿Suena bien al oído?</li>
-<li><strong>Universalidad</strong> — ¿Fácil en otros idiomas?</li>
+<li><strong>Eugrafía</strong> — ¿Se escribe como suena?</li>
+<li><strong>Eufonía</strong> — ¿Suena bien?</li>
+<li><strong>Universalidad</strong> — ¿Funciona en otros idiomas?</li>
 <li><strong>Disponibilidad</strong> — Registro, app stores, redes, dominio.</li>
-<li><strong>Vocabulario</strong> — ¿Permite crear verbos y sustantivos?</li>
+<li><strong>Vocabulario</strong> — ¿Genera verbos y sustantivos?</li>
 </ol>
 
-<p>Y 6 categorías: descriptores (Google Maps), adjetivistas (FastMail), asociativos (Telegram, Nike), neologismos (Instagram), evocadores (Twitter, Privalia) y abstractos (Wallapop).</p>
+<p>Seis categorías: descriptores (Google Maps), adjetivistas (FastMail), asociativos (Telegram, Nike), neologismos (Instagram), evocadores (Twitter, Privalia), abstractos (Wallapop).</p>
 
 <div class="pull-quote">
 «Las marcas de hoy necesitan ser verbos.» Googlear, tuitear, wasapear. Si tu marca se convierte en verbo, has ganado.
@@ -1349,7 +1350,7 @@ border-radius:10px;padding:24px;
 
 <h3>Memorable + Memerable</h3>
 
-<p>Una marca necesita ser <strong>memorable</strong> —que merezca la pena recordarse— y <strong>memerable</strong> —que merezca ser meme, ser compartida—. En la era digital, la viralidad no es un accidente: es consecuencia de una marca que activa la necesidad de compartir.</p>
+<p><strong>Memorable</strong>: que merezca recordarse. <strong>Memerable</strong>: que merezca ser meme, ser compartida. En la era digital, la viralidad no es accidente. Es consecuencia.</p>
 
 <div class="slide-figure fade-in">
 <img loading="lazy" src="slides/8_comunidad/export/export.015.jpeg" alt="Comunidad y marca">
@@ -1369,30 +1370,30 @@ border-radius:10px;padding:24px;
 </tbody>
 </table>
 
-<p>La evolución de <strong>customer-centric</strong> (Lovebrand: experiencia + marca) a <strong>relationship-centric</strong> (Mythbrand: experiencia + marca + cultura) es el salto más difícil y el más importante. Las marcas que importan no se conforman con ser amadas: aspiran a ser inmortales.</p>
+<p>De <strong>customer-centric</strong> a <strong>relationship-centric</strong>. De Lovebrand a Mythbrand. El salto más difícil y el más importante. Las marcas que importan no se conforman con ser amadas. Aspiran a ser inmortales.</p>
 
 <h2>Culture Gaps: cuando lo que dices y lo que haces no coinciden</h2>
 
-<p><strong>Gabriela Lendo</strong> enseñó que la cultura por diseño fortalece organizaciones; la cultura por defecto las debilita. Su trabajo identificó los 5 gaps más comunes:</p>
+<p><strong>Gabriela Lendo</strong>: la cultura por diseño fortalece. La cultura por defecto debilita. Cinco gaps:</p>
 
 <ol class="gold-list">
-<li><strong>Cultura ↔ Estrategia</strong> — Lo que dices que eres no se refleja en tus decisiones estratégicas.</li>
-<li><strong>Propósito ↔ Estrategia</strong> — Tu propósito declarado contradice tus objetivos reales.</li>
-<li><strong>Valores ↔ Comportamientos</strong> — Tus valores en el póster no se corresponden con los comportamientos tolerados.</li>
-<li><strong>Comportamientos ↔ Procesos</strong> — Los procesos internos impiden los comportamientos deseados.</li>
-<li><strong>Comportamientos ↔ Prácticas</strong> — Las prácticas del día a día contradicen los comportamientos esperados.</li>
+<li><strong>Cultura ↔ Estrategia</strong> — Lo que dices que eres no se refleja en tus decisiones.</li>
+<li><strong>Propósito ↔ Estrategia</strong> — Tu propósito contradice tus objetivos reales.</li>
+<li><strong>Valores ↔ Comportamientos</strong> — Los valores del póster no coinciden con lo que toleras.</li>
+<li><strong>Comportamientos ↔ Procesos</strong> — Los procesos impiden los comportamientos deseados.</li>
+<li><strong>Comportamientos ↔ Prácticas</strong> — El día a día contradice lo esperado.</li>
 </ol>
 
-<p>El framework para reconectar: identifica el gap, encuentra el origen, re-encauza, vuelve a diseñar y comunica al equipo la mejora.</p>
+<p>Reconectar: identifica el gap, encuentra el origen, re-encauza, rediseña, comunica.</p>
 
 <div class="case-card fade-in">
 <h4>Caso Wetaca</h4>
-<p>Tres aprendizajes: <strong>1.</strong> Involucra al equipo en la construcción de marca —un taller no es suficiente—. <strong>2.</strong> Own your purpose. Be accountable. Eres el ejemplo. <strong>3.</strong> Documenta, documenta, documenta —las keynotes no son suficientes—.</p>
+<p><strong>1.</strong> Involucra al equipo — un taller no basta. <strong>2.</strong> <em>Own your purpose. Be accountable.</em> Eres el ejemplo. <strong>3.</strong> Documenta, documenta, documenta.</p>
 </div>
 
 <div class="case-card fade-in">
 <h4>Caso Fondeadora</h4>
-<p>Tres aprendizajes: <strong>1.</strong> Gánate la confianza del equipo ANTES de redefinir valores y propósito. <strong>2.</strong> Contrata personas de Cultura con sensibilidad de marca. <strong>3.</strong> A veces no es el momento. No depende de ti.</p>
+<p><strong>1.</strong> Gánate la confianza ANTES de redefinir valores. <strong>2.</strong> Contrata personas de Cultura con sensibilidad de marca. <strong>3.</strong> A veces no es el momento. No depende de ti.</p>
 </div>
 
 <div class="pull-quote">
@@ -1408,11 +1409,11 @@ border-radius:10px;padding:24px;
 
 <h2>Comunidad = Inmunidad</h2>
 
-<p>La comunidad es el MOAT de Buffett aplicado a las marcas: la ventaja competitiva más difícil de replicar. Sin personalidad, generosidad, autenticidad, creatividad, diversidad, autoridad, humildad, libertad, verdad y transparencia, no puedes construir comunidad.</p>
+<p>La comunidad es el MOAT de Buffett aplicado a las marcas. La ventaja competitiva más difícil de replicar. Sin personalidad, generosidad, autenticidad, creatividad, diversidad, autoridad, humildad, libertad, verdad y transparencia no hay comunidad posible.</p>
 
 <h3>Las 3 Autoritas</h3>
 
-<p>Un concepto transversal a todo el programa. Para crear y liderar comunidad necesitas tres tipos de autoridad:</p>
+<p>Concepto transversal a todo el programa. Para crear comunidad necesitas tres autoridades:</p>
 
 <ol>
 <li><strong>Autoridad intelectual</strong> — Capacidad de análisis y conocimiento profundo.</li>
@@ -1439,13 +1440,13 @@ border-radius:10px;padding:24px;
 <strong>MVirP</strong> (Minimum Virtuous Product) → Comunidad</p>
 </div>
 
-<p>Los datos lo confirman (Marty Neumeier): el 50% de los clientes más leales pagarían un 25% de premium antes de cambiar. Los clientes leales gastan un 33% más. Un 5% de aumento en retención genera un 30% más en beneficios.</p>
+<p>Los datos (Marty Neumeier): el 50% de los clientes leales pagarían un 25% de premium antes de cambiar. Gastan un 33% más. Un 5% de aumento en retención genera un 30% más en beneficios.</p>
 
 <div class="pull-quote">
 «No ganan los mejores productos. Ganan los mejor distribuidos o los que tienen mejor comunidad.»
 </div>
 
-<p>Para construir comunidad tienes que amar profunda y sinceramente lo que haces. Construir comunidad es como un sacerdocio. Tú no eres el protagonista. Comunidad es «Nosotros» frente a «Yo». Comunidad es cuidar.</p>
+<p>Construir comunidad es sacerdocio. Tú no eres el protagonista. Comunidad es «Nosotros» frente a «Yo». Comunidad es cuidar.</p>
 
 <div class="concept-card fade-in">
 <h4>Metodología «Mejor que >»</h4>
@@ -1482,7 +1483,7 @@ border-radius:10px;padding:24px;
 <p class="hero-part-label">Parte IV</p>
 <div class="hero-line"></div>
 <h2 class="hero-title">SENTIR</h2>
-<p class="hero-subtitle">La trinidad narrativa: Esperanza, Épica y Elevación — las tres emociones que hacen que una empresa trascienda</p>
+<p class="hero-subtitle">Esperanza. Épica. Elevación. Las tres emociones que hacen que una empresa trascienda.</p>
 </div>
 </div>
 
@@ -1491,13 +1492,13 @@ border-radius:10px;padding:24px;
 
 <h2>Esperanza</h2>
 
-<p>El diagnóstico social es claro. Según el Trust Barometer 2023 de Edelman: el 60% de las personas creen que no vivirán mejor en 5 años (+10 puntos respecto a 2022). El 63% comprarían o recomendarían una marca por sus valores (era el 50% en 2017). El 69% consideran la conciencia social un factor importante para trabajar en una empresa. Los gobiernos generan menos confianza que las empresas. La crisis de religiones e ideologías genera una necesidad profunda de creer en algo.</p>
+<p>Trust Barometer 2023, Edelman: el 60% creen que no vivirán mejor en 5 años. El 63% comprarían una marca por sus valores. El 69% consideran la conciencia social clave para elegir dónde trabajar. Los gobiernos generan menos confianza que las empresas. La crisis de religiones e ideologías deja un vacío profundo.</p>
 
-<p>En este contexto, la esperanza no es ingenuidad: es estrategia.</p>
+<p>La esperanza no es ingenuidad. Es estrategia.</p>
 
 <div class="concept-card fade-in">
 <h4>El mayor error narrativo de los últimos 50 años</h4>
-<p><strong>Culpabilizar vs. Motivar.</strong> Demasiadas marcas, movimientos y políticas han elegido el camino de la culpa —«tú eres parte del problema»— en lugar del camino de la motivación —«tú puedes ser parte de la solución»—. El resultado ha sido desconexión, cinismo y parálisis.</p>
+<p><strong>Culpabilizar vs. Motivar.</strong> Demasiadas marcas eligieron la culpa: «tú eres parte del problema.» Pocas eligieron la motivación: «tú puedes ser parte de la solución.» El resultado: desconexión, cinismo, parálisis.</p>
 </div>
 
 <h3>10 Elementos para crear esperanza</h3>
@@ -1517,7 +1518,7 @@ border-radius:10px;padding:24px;
 
 <h3>El diccionario emocional</h3>
 
-<p>Para trabajar una emoción, siempre hacer un diccionario. Para la esperanza: <strong>sustantivos</strong> como felicidad, cambio, ilusión, anhelo, expectativa; <strong>verbos</strong> como creer, cambiar, mejorar, transformar; <strong>adjetivos</strong> como nuevo, ilusionante, feliz, mejor. Esta técnica obliga a precisar el territorio emocional y evita la vaguedad.</p>
+<p>Para trabajar una emoción, haz un diccionario. <strong>Sustantivos</strong>: felicidad, cambio, ilusión, anhelo. <strong>Verbos</strong>: creer, cambiar, mejorar, transformar. <strong>Adjetivos</strong>: nuevo, ilusionante, mejor. Precisar el territorio emocional. Evitar la vaguedad.</p>
 
 <div class="pull-quote">
 «No hay nada más contagioso, influyente y poderoso que una narrativa. Especialmente si trabaja la esperanza.»
@@ -1580,17 +1581,17 @@ border-radius:10px;padding:24px;
 <div class="two-col fade-in">
 <div class="col">
 <h4>Épica de lo grande</h4>
-<p style="font-size:.92rem">Grandilocuencia, gestos públicos, confrontación, negatividad. El discurso de JFK en Rice University sobre ir a la Luna. La retórica de Churchill. El «I Have a Dream» de Martin Luther King.</p>
+<p style="font-size:.92rem">Grandilocuencia, gestos públicos, confrontación. JFK en Rice University. Churchill. «I Have a Dream.»</p>
 </div>
 <div class="col">
 <h4>Épica de lo pequeño</h4>
-<p style="font-size:.92rem">Lo cotidiano y anónimo, amor, familia, amistad, ilusión y unidad. La belleza de lo invisible. Lo que Miyazaki llama «Ma»: la nada que lo es todo.</p>
+<p style="font-size:.92rem">Lo cotidiano, lo anónimo. Amor, familia, amistad. La belleza de lo invisible. Lo que Miyazaki llama «Ma»: la nada que lo es todo.</p>
 </div>
 </div>
 
 <h3>Hayao Miyazaki y el concepto «Ma»</h3>
 
-<p><strong>Miyazaki</strong> y el concepto japonés «Ma»: la nada que lo es todo. La belleza de lo pequeño, lo cotidiano, universal y atemporal. «Las películas de Disney te llegan al corazón, pero las de Miyazaki te llegan al alma», dijo John Lasseter. La mayor revolución ha sido la de los cuidados. Los verbos son más importantes que los adjetivos en la épica y la esperanza.</p>
+<p><strong>Miyazaki</strong> y el «Ma» japonés: la nada que lo es todo. Lo pequeño, lo cotidiano, lo universal, lo atemporal. Lasseter: «Las películas de Disney te llegan al corazón. Las de Miyazaki te llegan al alma.» La mayor revolución ha sido la de los cuidados. Verbos sobre adjetivos. Siempre.</p>
 
 <h3>10 Elementos para crear épica</h3>
 
@@ -1658,7 +1659,7 @@ border-radius:10px;padding:24px;
 
 <h2>Elevación</h2>
 
-<p>Si la esperanza mira al futuro y la épica mira al esfuerzo, la elevación mira al alma. Su concepto central es la <strong>deseabilidad honesta</strong>: «Los negocios son relaciones de confianza. Para crearlas hay que crear deseabilidad de manera honesta.»</p>
+<p>La esperanza mira al futuro. La épica mira al esfuerzo. La elevación mira al alma. Su centro: la <strong>deseabilidad honesta</strong>. Los negocios son relaciones de confianza. Para crearlas, desea con honestidad.</p>
 
 <h3>3 criterios para validar viabilidad</h3>
 
@@ -1686,7 +1687,7 @@ border-radius:10px;padding:24px;
 
 <h3>Frameworks para productos amados</h3>
 
-<p><strong>M.A.Y.A.</strong> (Raymond Loewy): Most Advanced Yet Acceptable. La innovación debe ser suficiente para sorprender pero no tanta como para alienar. <strong>La regla del 3%</strong> (Virgil Abloh): cambiar solo un 3% para innovar. A veces la revolución está en el matiz, no en la ruptura.</p>
+<p><strong>M.A.Y.A.</strong> (Raymond Loewy): <em>Most Advanced Yet Acceptable</em>. Sorprender sin alienar. <strong>La regla del 3%</strong> (Virgil Abloh): cambiar solo un 3%. A veces la revolución está en el matiz, no en la ruptura.</p>
 
 <h3>¿Qué es la elevación?</h3>
 
@@ -1695,7 +1696,7 @@ border-radius:10px;padding:24px;
 <p>Si la marca es el <em>aura percibida de valor</em>...</p>
 <p>Si la cultura es la <em>coherencia constante sistematizada</em>...</p>
 <p style="font-size:1.15rem;color:var(--text-bright)"><strong>La elevación es el amor que trasciende.</strong></p>
-<p>El amor por los detalles necesarios e innecesarios. No se trabaja desde la autenticidad, sino desde la <strong>fidelidad</strong> —casi radical— a tu narrativa. Se trabaja como un sacerdocio. No desde el corazón, sino desde el alma. Es más una cuestión ética que estética.</p>
+<p>El amor por los detalles necesarios e innecesarios. No autenticidad: <strong>fidelidad</strong> radical a tu narrativa. Se trabaja como sacerdocio. No desde el corazón, sino desde el alma. Más ética que estética.</p>
 </div>
 
 <h3>Fórmula de la elevación</h3>
@@ -1707,12 +1708,12 @@ border-radius:10px;padding:24px;
 <h3>6 Elementos para crear elevación</h3>
 
 <ol class="gold-list">
-<li><strong>Ejemplaridad</strong> — Las 3 autoritas, valores, principios. «Dominar la emoción de la excelencia.»</li>
-<li><strong>Foco</strong> — Renunciar a tentaciones. No todo vale o encaja.</li>
-<li><strong>Profundidad</strong> — Pertenencia, mística, conexión con la historia.</li>
-<li><strong>Rebeldía</strong> — Bien vs. Mal. Hacer lo diferente, lo contrario.</li>
+<li><strong>Ejemplaridad</strong> — Las 3 <em>autoritas</em>. «Dominar la emoción de la excelencia.»</li>
+<li><strong>Foco</strong> — Renunciar. No todo vale.</li>
+<li><strong>Profundidad</strong> — Pertenencia, mística, historia.</li>
+<li><strong>Rebeldía</strong> — Bien contra mal. Hacer lo diferente.</li>
 <li><strong>Legado</strong> — Ambición articulada a diario.</li>
-<li><strong>Elevación</strong> como tal — La culminación de todos los elementos anteriores.</li>
+<li><strong>Elevación</strong> — La culminación de todo lo anterior.</li>
 </ol>
 
 <div class="pull-quote">
@@ -1758,9 +1759,9 @@ border-radius:10px;padding:24px;
 
 <h2>La trinidad compartida</h2>
 
-<p>Esperanza, Épica y Elevación comparten los mismos 10 elementos fundamentales —autoridad, oportunidad de cambio, marco de identidad, conexión histórica, fe y voluntad, valores, gestos de acercamiento, mitología, deseo de pertenencia, final transformador— pero cada una los trabaja desde una perspectiva distinta. La esperanza mira al futuro con optimismo. La épica mira al esfuerzo con admiración. La elevación mira al alma con amor.</p>
+<p>Esperanza, Épica y Elevación comparten diez elementos — autoridad, oportunidad de cambio, identidad, historia, fe, valores, acercamiento, mitología, pertenencia, final transformador — pero cada una los trabaja desde un lugar distinto. La esperanza mira al futuro con optimismo. La épica mira al esfuerzo con admiración. La elevación mira al alma con amor.</p>
 
-<p>Juntas forman la trinidad narrativa: el motor emocional de cualquier empresa que aspire a importar.</p>
+<p>Juntas forman la trinidad narrativa. El motor emocional de cualquier empresa que aspire a importar.</p>
 
 </div>
 </div>
@@ -1777,7 +1778,7 @@ border-radius:10px;padding:24px;
 <p class="hero-part-label">Parte V</p>
 <div class="hero-line"></div>
 <h2 class="hero-title">CULTIVAR</h2>
-<p class="hero-subtitle">La coherencia constante: cultura como producto, liderazgo como cuidado y los casos que lo demuestran</p>
+<p class="hero-subtitle">La coherencia constante. Cultura como producto. Liderazgo como cuidado. Y los casos que lo demuestran.</p>
 </div>
 </div>
 
@@ -1786,15 +1787,15 @@ border-radius:10px;padding:24px;
 
 <h2>Culturar: un verbo nuevo</h2>
 
-<p>Siempre se habla de posicionar, marketear, brandear... pero nunca se habla de <strong>culturar</strong>. Culturar no existe como verbo. Culturar es hacer cultura, sembrar la cultura, regarla, cuidarla, evolucionarla siempre que sea necesario y escalarla. Tu cultura es tu otro gran producto a construir.</p>
+<p>Posicionar, marketear, brandear. Pero nadie dice <strong>culturar</strong>. No existe como verbo. Culturar es hacer cultura, sembrarla, regarla, cuidarla, evolucionarla, escalarla. Tu cultura es tu otro gran producto.</p>
 
 <h3>4 objetivos de la cultura</h3>
 
 <ol class="gold-list">
 <li><strong>Motivación y bienestar</strong> del equipo.</li>
-<li><strong>Mejores soluciones</strong> — un equipo motivado produce mejor.</li>
+<li><strong>Mejores soluciones</strong> — equipo motivado, mejor producto.</li>
 <li><strong>Mayor productividad</strong> — la cultura elimina fricción.</li>
-<li><strong>Más ingresos</strong> — la consecuencia, no el objetivo.</li>
+<li><strong>Más ingresos</strong> — consecuencia, no objetivo.</li>
 </ol>
 
 <h3>Definiciones de cultura</h3>
@@ -1827,37 +1828,37 @@ border-radius:10px;padding:24px;
 
 <h3>Emociones como KPI</h3>
 
-<p>Las emociones son métricas de cultura (Paul Ekman, Robert Plutchik). Medir trimestralmente: satisfacción, motivación, empoderamiento frente a insatisfacción, desmotivación, miedo, estrés. Lo que no se mide no se gestiona, y las emociones del equipo son el indicador más honesto de salud organizativa.</p>
+<p>Las emociones son métricas de cultura (Ekman, Plutchik). Mide trimestralmente: satisfacción, motivación, empoderamiento frente a desmotivación, miedo, estrés. Lo que no se mide no se gestiona. Las emociones del equipo son el indicador más honesto de salud.</p>
 
 <h3>Liderazgo</h3>
 
-<p>Solo hay dos tipos de líderes: los que te inspiran y los que te esclavizan. No hay término medio.</p>
+<p>Dos tipos de líderes: los que inspiran y los que esclavizan. No hay término medio.</p>
 
 <div class="pull-quote">
 «When I talk to managers I get the feeling they're important, when I talk to leaders I get the feeling that I am.»
 <span class="attribution">— Peter Drucker (atrib.)</span>
 </div>
 
-<p>Liderar también es pedir ayuda, saber colaborar y aprender. El liderazgo no es un título: es un comportamiento diario.</p>
+<p>Liderar es pedir ayuda. Colaborar. Aprender. El liderazgo no es un título: es un comportamiento diario.</p>
 
 <h3>Reglas vs. Normas / Actitudes vs. Comportamientos</h3>
 
-<p>Las <strong>reglas</strong> son conductas explícitas, escritas, vigiladas e impuestas, con consecuencias. Las <strong>normas</strong> son reglas tácitas, consensos implícitos e informales. Las <strong>actitudes</strong> son estados mentales que predisponen a pensar o hacer algo —funcionan como objetivos—. Los <strong>comportamientos</strong> son acciones observables y medibles —funcionan como métricas—.</p>
+<p><strong>Reglas</strong>: explícitas, escritas, con consecuencias. <strong>Normas</strong>: tácitas, informales, consensuadas. <strong>Actitudes</strong>: estados mentales — funcionan como objetivos. <strong>Comportamientos</strong>: acciones observables — funcionan como métricas.</p>
 
-<p>«Narrativa, marca y cultura también es cuándo pagas a tus clientes o proveedores.» La cultura se manifiesta en los detalles más prosaicos.</p>
+<p>Narrativa, marca y cultura también es cuándo pagas a tus proveedores. La cultura se manifiesta en los detalles más prosaicos.</p>
 
 <div class="slide-figure fade-in">
 <img loading="lazy" src="slides/21_culturar/export/export.030.jpeg" alt="Culturar — 12 aprendizajes">
 <figcaption>Culturar: hacer cultura, sembrar la cultura, regarla, cuidarla, evolucionarla y escalarla.</figcaption>
 </div>
 
-<h2>Caso Netflix: Freedom & Responsibility</h2>
+<h2>Caso Netflix: <em>Freedom & Responsibility</em></h2>
 
-<p>En 2009, Netflix publicó «Netflix Culture: Freedom & Responsibility», que acumuló más de 17 millones de visualizaciones. Sheryl Sandberg lo llamó «el documento más importante en la historia de Silicon Valley».</p>
+<p>2009. Netflix publica su Culture Deck. 17 millones de visualizaciones. Sandberg lo llamó «el documento más importante en la historia de Silicon Valley.»</p>
 
-<p>Sus principios clave: Dream Team, no familia. «Not brilliant jerks.» Nueve valores: Judgment, Communication, Impact, Curiosity, Innovation, Courage, Passion, Honesty, Selflessness. «The Rare Responsible Person»: self-motivating, self-aware, self-disciplined, self-improving.</p>
+<p>Dream Team, no familia. <em>Not brilliant jerks.</em> Nueve valores. «The Rare Responsible Person»: self-motivating, self-aware, self-disciplined, self-improving.</p>
 
-<p>Política de gastos: «Act in Netflix's best interest.» Vacaciones: «Take vacation» —sin reglas, sin límites—. «Values are what we Value»: el recordatorio de que Enron tenía valores preciosos en el lobby pero acabó en el mayor fraude corporativo de la historia.</p>
+<p>Política de gastos: «Act in Netflix's best interest.» Vacaciones: «Take vacation» — sin reglas. «Values are what we Value»: Enron tenía valores preciosos en el lobby. Acabó en el mayor fraude corporativo de la historia.</p>
 
 <div class="pull-quote">
 «La cultura es al recruiting lo que el marketing es al producto. La cultura no son buenas oficinas y comida gratis. Cultura es cuidarnos.»
@@ -1890,25 +1891,25 @@ border-radius:10px;padding:24px;
 
 <h2>MVC: Minimum Viable Culture</h2>
 
-<p>Así como existe el MVP para el producto, existe el MVC para la cultura. Once pasos para empezar:</p>
+<p>MVP para el producto. MVC para la cultura. Once pasos:</p>
 
 <ol class="gold-list">
-<li><strong>Instaurar valores core</strong> y aterrizarlos en principios accionables y recordables.</li>
-<li><strong>Representatividad</strong> — Líderes de cultura en cada equipo (persona distinta al responsable del equipo).</li>
-<li><strong>Espacios de seguridad</strong> — Jerarquías como mecanismo de productividad, no barreras tóxicas. Que cada persona escriba su propio «manual de instrucciones». Canales anónimos de evaluación y reporte.</li>
+<li><strong>Valores core</strong> aterrizados en principios accionables.</li>
+<li><strong>Representatividad</strong> — Líderes de cultura en cada equipo, distintos al responsable.</li>
+<li><strong>Espacios de seguridad</strong> — Jerarquías productivas, no tóxicas. Manual de instrucciones personal. Canales anónimos.</li>
 <li><strong>Acciones y comunicaciones periódicas</strong> que refuercen la cultura.</li>
-<li><strong>Cuidar los micromomentos</strong> — «Perdón, gracias y por favor» con normalidad.</li>
-<li><strong>Feedback y reconocimiento</strong> vs. positividad tóxica — Si lideras la reunión, intenta hablar el último.</li>
-<li><strong>Experiencia y salario</strong> — El aporte cultural como criterio de remuneración. Si un objetivo se consigue yendo contra la cultura, no contabiliza.</li>
-<li><strong>Transparencia informativa</strong> — Diferenciar entre transparencia y exhibicionismo.</li>
-<li><strong>Caminos claros para crecer profesionalmente.</strong></li>
-<li><strong>Presencial vs. Remoto</strong> — La interacción física genera vínculos más estrechos.</li>
-<li><strong>Gestión del ocio</strong> — Alcohol en eventos, tipo de comida, horarios, redes sociales.</li>
+<li><strong>Micromomentos</strong> — Perdón, gracias, por favor. Con normalidad.</li>
+<li><strong>Feedback y reconocimiento</strong> — No positividad tóxica. Si lideras, habla el último.</li>
+<li><strong>Salario y cultura</strong> — Si un objetivo se consigue contra la cultura, no contabiliza.</li>
+<li><strong>Transparencia</strong> — Diferenciar de exhibicionismo.</li>
+<li><strong>Caminos claros</strong> para crecer.</li>
+<li><strong>Presencial vs. Remoto</strong> — Lo físico genera vínculos más estrechos.</li>
+<li><strong>Gestión del ocio</strong> — Alcohol, comida, horarios, redes.</li>
 </ol>
 
 <h3>Ejemplo: SPACE10 Handbook</h3>
 
-<p>El handbook de SPACE10 es un ejemplo de buenas prácticas culturales llevadas al extremo: viernes libre como «Day of Inspiration», reuniones de 25/40/50 minutos (nunca 30/45/60), baja menstrual separada de la baja por enfermedad, 10 días de duelo pagados, hasta 38 semanas de maternidad/paternidad a sueldo completo, almuerzo vegano, código de conducta con cero tolerancia a discriminación.</p>
+<p>SPACE10: viernes libre como <em>Day of Inspiration</em>. Reuniones de 25/40/50 minutos — nunca 30/45/60. Baja menstrual separada. 10 días de duelo pagados. Hasta 38 semanas de maternidad/paternidad a sueldo completo. Almuerzo vegano. Cero tolerancia a discriminación. Cultura llevada al extremo.</p>
 
 <div class="sep"></div>
 
@@ -1916,7 +1917,7 @@ border-radius:10px;padding:24px;
 
 <div class="case-card fade-in">
 <h4>BNE — Biblioteca Nacional de España: «Atesora, Construye, Inspira»</h4>
-<p>Gabriela Lendo y Elena Sánchez Nogales presentaron el trabajo con BNE para darle profundidad y discurso al merchandising y a la propia institución. La BNE, fundada por Felipe V en 1711, es el depósito legal de toda la producción bibliográfica española. Su nueva narrativa: «Conocer nuestra historia es imaginar un país. Más Biblioteca es esperanza de futuro.» El principio operativo: «Tu producto también es el mensaje» — crear productos pero, sobre todo, dotar de discurso.</p>
+<p>Gabriela Lendo y Elena Sánchez Nogales dotaron de discurso a la BNE. Fundada por Felipe V en 1711, depósito legal de toda la producción bibliográfica española. Nueva narrativa: «Conocer nuestra historia es imaginar un país. Más Biblioteca es esperanza de futuro.» Tu producto también es el mensaje.</p>
 <p><em>«Hombres de España, ni el pasado ha muerto / ni está el mañana —ni el ayer— escrito.»</em> — Antonio Machado</p>
 </div>
 
@@ -1927,18 +1928,18 @@ border-radius:10px;padding:24px;
 </div>
 
 <div class="case-card fade-in">
-<h4>Filmin: Made in Europe = Plenitud</h4>
-<p>Juan Carlos Tous (CEO) y Pilar Toro (CMO) mostraron cómo crear, gestionar y crecer una empresa desde una cosmovisión clara. Filmin representa el buen Made in Catalonia, Made in Spain, Made in Europe. Si el «Made in USA» se fundamenta en la <strong>abundancia</strong> —Henry Ford, cadenas de montaje, economías de escala—, Filmin y el «Made in Europe» representan <strong>plenitud</strong>: empresas que crean prosperidad plena más allá de lo económico, sociedades con estados de bienestar que permiten innovar y cuidarnos.</p>
+<h4>Filmin: <em>Made in Europe</em> = Plenitud</h4>
+<p>Juan Carlos Tous y Pilar Toro: crear, gestionar y crecer desde una cosmovisión clara. <em>Made in USA</em> = <strong>abundancia</strong>: Ford, cadenas de montaje, escala. <em>Made in Europe</em> = <strong>plenitud</strong>: prosperidad más allá de lo económico, estados de bienestar que permiten innovar y cuidarnos. Filmin encarna eso.</p>
 </div>
 
 <div class="case-card fade-in">
 <h4>LAAGAM: moda con diccionario de adjetivos</h4>
-<p>Inés y Diego Arroyo, cofundadores de la firma de moda que está convirtiéndose en una de las favoritas entre mujeres de 25-40 años, articulan un diseño y filosofía anclados en un diccionario de adjetivos. Cada colección parte de palabras, no de tendencias. La referencia a <em>Scaling People</em> (COO de Stripe) reafirma la importancia de documentos fundacionales rigurosos.</p>
+<p>Inés y Diego Arroyo. Cada colección parte de palabras, no de tendencias. Diseño anclado en un diccionario de adjetivos. <em>Scaling People</em> (COO de Stripe) reafirma la importancia de documentos fundacionales rigurosos. Las palabras dirigen el hacer.</p>
 </div>
 
 <div class="case-card fade-in">
 <h4>Inditex: democratizar el vestir bien</h4>
-<p>Fer Suárez, responsable de People para Tecnología, presentó cómo Inditex revolucionó la industria <strong>democratizando el vestir bien</strong>. El reto actual: demostrar que vestir bien puede ser asequible, ético y responsable. La dirección creativa digital tiene nivel de marca de lujo. La pregunta sobre el paradigma «everything to everyone» —Zara Home, Zara Hair, ¿Inditex como el Amazon del Lifestyle?— define el futuro de la compañía.</p>
+<p>Fer Suárez presentó la revolución Inditex: <strong>democratizar el vestir bien</strong>. El reto: demostrar que asequible, ético y responsable pueden convivir. Dirección creativa digital a nivel de marca de lujo. ¿Inditex como el Amazon del Lifestyle? Zara Home, Zara Hair. La pregunta define el futuro.</p>
 </div>
 
 <div class="case-card fade-in">
@@ -1972,7 +1973,7 @@ border-radius:10px;padding:24px;
 <p class="hero-part-label">Parte VI</p>
 <div class="hero-line"></div>
 <h2 class="hero-title">IMPORTAR</h2>
-<p class="hero-subtitle">El cierre del círculo: ser, estar y hacer para impactar e importar a alguien</p>
+<p class="hero-subtitle">El cierre del círculo. Ser, estar y hacer para importar a alguien.</p>
 </div>
 </div>
 
@@ -1981,13 +1982,13 @@ border-radius:10px;padding:24px;
 
 <h2>Ser, estar y hacer para importar</h2>
 
-<p>La primera clase se tituló «Ser y estar». La segunda se tituló «Hacer». El cierre del programa se titula «Importar». El círculo se completa: la narrativa es ser, estar y hacer para impactar e importar.</p>
+<p>Primera clase: «Ser y estar.» Segunda: «Hacer.» Cierre: «Importar.» El círculo se completa.</p>
 
-<p>El programa ha sido una formación para crear mejores organizaciones y sociedades. Ha sido un programa para crear productos y servicios que importen. Liderazgos que importen. Empresas que importen.</p>
+<p>Un programa para crear productos que importen. Liderazgos que importen. Empresas que importen.</p>
 
 <h3>Ser > Parecer</h3>
 
-<p>El gran aprendizaje que atraviesa todas las sesiones: <strong>ser es más importante e impactante que parecer</strong>. Cuando eres tú, importas a los demás. Cuando quieres parecer lo que no eres, eres irrelevante. Es más fácil ser bueno que malo.</p>
+<p>El aprendizaje que atraviesa todo: <strong>ser es más importante que parecer</strong>. Cuando eres tú, importas. Cuando quieres parecer lo que no eres, eres irrelevante.</p>
 
 <div class="pull-quote">
 «Es más fácil ser bueno que malo.»
@@ -1995,7 +1996,7 @@ border-radius:10px;padding:24px;
 
 <h3>Las 3 Autoritas como concepto transversal</h3>
 
-<p>A lo largo de las 24 sesiones, las tres autoritas han aparecido una y otra vez como el esqueleto de todo lo demás:</p>
+<p>24 sesiones. Las tres <em>autoritas</em>, una y otra vez, como esqueleto de todo lo demás:</p>
 
 <ul>
 <li><strong>Autoridad moral</strong> — Coherencia entre lo que dices y haces.</li>
@@ -2003,11 +2004,11 @@ border-radius:10px;padding:24px;
 <li><strong>Autoridad ejecutiva/maker</strong> — Capacidad de hacer, construir, entregar.</li>
 </ul>
 
-<p>Sin las tres, no hay narrativa creíble. Sin las tres, no hay marca respetada. Sin las tres, no hay cultura sostenible. Sin las tres, no importas.</p>
+<p>Sin las tres, no hay narrativa creíble. Sin las tres, no hay marca respetada. Sin las tres, no hay cultura sostenible. Sin las tres, no importas a nadie.</p>
 
 <h3>La trinidad: Esperanza + Épica + Elevación</h3>
 
-<p>Los tres conceptos comparten diez elementos comunes y deben trabajarse de forma integrada. No son opciones: son capas. Una empresa que trabaje la esperanza pero no la épica se queda en el optimismo vacío. Una que trabaje la épica pero no la elevación se queda en el espectáculo. Solo la integración de las tres produce algo que trasciende.</p>
+<p>Diez elementos comunes. No son opciones: son capas. Esperanza sin épica es optimismo vacío. Épica sin elevación es espectáculo. Solo la integración de las tres produce algo que trasciende.</p>
 
 <h3>Definiciones centrales del programa</h3>
 
@@ -2021,7 +2022,7 @@ border-radius:10px;padding:24px;
 
 <h3>Consejos de escritura</h3>
 
-<p>«Deja fluir la escritura y luego sintetiza e intenta convertir la prosa en ritmo casi musical. <strong>Fluye, sintetiza y dale cadencia.</strong>» La narrativa es también oficio de escritura. Las palabras importan. Cada una.</p>
+<p>Deja fluir la escritura. Luego sintetiza. Convierte la prosa en ritmo casi musical. <strong>Fluye, sintetiza, dale cadencia.</strong> La narrativa es oficio de escritura. Las palabras importan. Cada una.</p>
 
 <div class="slide-figure fade-in">
 <img loading="lazy" src="slides/24_importar_final/export/export.010.jpeg" alt="Importar — cierre del programa">
@@ -2077,7 +2078,7 @@ border-radius:10px;padding:24px;
 <p class="hero-part-label">Apéndice</p>
 <div class="hero-line"></div>
 <h2 class="hero-title">BIBLIOTECA</h2>
-<p class="hero-subtitle">Los libros, las citas y el diccionario del programa</p>
+<p class="hero-subtitle">Los libros. Las citas. El diccionario. Lo que queda cuando se apagan las luces.</p>
 </div>
 </div>
 
